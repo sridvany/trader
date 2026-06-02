@@ -1,11 +1,5 @@
 {
-  "ticker": "gc=f",
-  "in_position": false,
-  "entry_price": null,
-  "entry_time": null,
-  "qty": 0.0,
-  "cash": 1000.0,
-  "capital": 1000.0,
-  "last_bar_time": "2026-06-02 14:00:00-04:00",
-  "history": []
+  "gc=f": {"ticker":"gc=f","in_position":false,"entry_price":null,"entry_time":null,"qty":0.0,"cash":1000.0,"capital":1000.0,"last_bar_time":null,"history":[]},
+  "NVDA": {"ticker":"NVDA","in_position":false,"entry_price":null,"entry_time":null,"qty":0.0,"cash":1000.0,"capital":1000.0,"last_bar_time":null,"history":[]},
+  "ASELS.IS": {"ticker":"ASELS.IS","in_position":false,"entry_price":null,"entry_time":null,"qty":0.0,"cash":1000.0,"capital":1000.0,"last_bar_time":null,"history":[]}
 }
