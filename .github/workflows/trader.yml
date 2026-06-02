@@ -1,0 +1,6 @@
+.github/
+  workflows/
+    trader.yml
+app.py
+signals.py
+...
