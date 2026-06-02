@@ -1,0 +1,11 @@
+{
+  "ticker": "gc=f",
+  "in_position": false,
+  "entry_price": null,
+  "entry_time": null,
+  "qty": 0.0,
+  "cash": 1000.0,
+  "capital": 1000.0,
+  "last_bar_time": null,
+  "history": []
+}
