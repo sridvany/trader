@@ -18,8 +18,4 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python trader.py
-      - run: |
-          git config user.name "bot"
-          git config user.email "bot@users.noreply.github.com"
-          git add position.json
-          git
+      - run: git config user.name bot && git config user.email bot@noreply.com && git add position.json && (git diff --staged --quiet || (git commit -m state && git push --force))
