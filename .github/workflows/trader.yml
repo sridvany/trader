@@ -24,5 +24,11 @@ jobs:
           git add position.json
           git diff --staged --quiet && echo "Degisiklik yok." && exit 0
           git commit -m "state"
-          git pull --rebase --autostash
-          git push
+          for i in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase origin/main && git push && exit 0
+            echo "Push denemesi $i basarisiz, tekrar deneniyor..."
+            sleep 3
+          done
+          echo "Push 5 denemede basarisiz oldu."
+          exit 1
