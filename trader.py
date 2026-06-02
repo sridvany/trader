@@ -1,14 +1,15 @@
 """
-trader.py — Paper-trade botu (tek seferlik çalışır, cron tetikler).
+trader.py — Çoklu-ticker paper-trade botu (tek seferlik çalışır, cron tetikler).
 
 Akış:
-  1) config.json oku    -> hangi ticker, interval, lookback, k
-  2) veri çek (yfinance) -> son KAPANMIŞ bar baz alınır
-  3) signals.py          -> kombine skor -> z-score -> AL/SAT/TUT
-  4) position.json oku   -> elde pozisyon var mı?
-  5) karara göre paper al/sat, position.json güncelle
-  6) işlem olduysa Telegram'a mesaj at
+  1) config.json oku    -> tickers listesi + interval, lookback, k
+  2) her ticker için:
+       veri çek -> kombine skor -> z-score -> AL/SAT/TUT
+       o ticker'ın pozisyonuna göre paper al/sat
+       işlem olduysa Telegram'a mesaj at
+  3) tüm pozisyonları position.json'a yaz (ticker bazlı sözlük)
 
+Her ticker BAĞIMSIZ kendi sermayesiyle işlem yapar.
 Gerçek para YOK. Tamamen simülasyon (paper trading).
 """
 import json
@@ -21,7 +22,6 @@ import yfinance as yf
 
 import signals
 
-# ── Telegram (Aşama 4'te aktif olacak). Ortam değişkeninden okunur. ──
 try:
     from notify import send_telegram
 except Exception:
@@ -29,15 +29,15 @@ except Exception:
         print("[TELEGRAM stub]", msg)
 
 
-BASE_DIR     = os.path.dirname(os.path.abspath(__file__))
-CONFIG_PATH  = os.path.join(BASE_DIR, "config.json")
-POS_PATH     = os.path.join(BASE_DIR, "position.json")
+BASE_DIR    = os.path.dirname(os.path.abspath(__file__))
+CONFIG_PATH = os.path.join(BASE_DIR, "config.json")
+POS_PATH    = os.path.join(BASE_DIR, "position.json")
 
 DEFAULT_CONFIG = {
-    "ticker": "gc=f",
+    "tickers": ["gc=f", "NVDA", "ASELS.IS"],
     "interval": "15m",
     "period": "5d",
-    "lookback": 100,
+    "lookback": 32,
     "k": 1.0,
     "capital": 1000.0,
     "cost_pct": 0.001,
@@ -61,6 +61,15 @@ def save_json(path, data):
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
+def get_tickers(cfg):
+    """config'ten ticker listesini çıkarır. Eski tekil 'ticker' alanını da destekler."""
+    if "tickers" in cfg and isinstance(cfg["tickers"], list) and cfg["tickers"]:
+        return [str(t) for t in cfg["tickers"]]
+    if "ticker" in cfg:
+        return [str(cfg["ticker"])]
+    return list(DEFAULT_CONFIG["tickers"])
+
+
 def fetch(ticker, period, interval):
     fetch_i = "1h" if interval in ("4h", "8h") else interval
     df = yf.download(ticker, period=period, interval=fetch_i, progress=False)
@@ -78,49 +87,50 @@ def fresh_position(ticker, capital):
         "qty": 0.0,
         "cash": capital,
         "capital": capital,
-        "last_bar_time": None,   # işlenmiş son bar (çift işlem engeli)
-        "history": [],           # [{action, price, time, pct, value}]
+        "last_bar_time": None,
+        "history": [],
     }
 
 
-def run():
-    cfg = load_json(CONFIG_PATH, DEFAULT_CONFIG)
-    ticker   = cfg.get("ticker", DEFAULT_CONFIG["ticker"])
-    interval = cfg.get("interval", DEFAULT_CONFIG["interval"])
-    period   = cfg.get("period", DEFAULT_CONFIG["period"])
-    lookback = int(cfg.get("lookback", 100))
+def process_ticker(ticker, cfg, all_pos):
+    """Tek bir ticker'ı işler, all_pos sözlüğünü günceller. Hata olursa yutar (diğerleri devam etsin)."""
+    interval = cfg.get("interval", "15m")
+    period   = cfg.get("period", "5d")
+    lookback = int(cfg.get("lookback", 32))
     k        = float(cfg.get("k", 1.0))
     capital  = float(cfg.get("capital", 1000.0))
     cost_pct = float(cfg.get("cost_pct", 0.001))
     is_intra = interval in INTRADAY_INTERVALS
 
-    pos = load_json(POS_PATH, fresh_position(ticker, capital))
-    # Ticker değiştiyse pozisyonu sıfırla (eldeki başka enstrümanı taşımayız).
-    if pos.get("ticker") != ticker:
-        if pos.get("in_position"):
-            print(f"[UYARI] Ticker {pos.get('ticker')} -> {ticker} değişti, açık pozisyon vardı; sıfırlanıyor.")
+    pos = all_pos.get(ticker)
+    if not pos or pos.get("ticker") != ticker:
         pos = fresh_position(ticker, capital)
 
-    df = fetch(ticker, period, interval)
+    try:
+        df = fetch(ticker, period, interval)
+    except Exception as e:
+        print(f"[{ticker}] veri hatası: {e} — atlanıyor.")
+        all_pos[ticker] = pos
+        return
+
     if df is None or df.empty or len(df) < lookback + 5:
-        print(f"[BİLGİ] Yetersiz veri ({0 if df is None else len(df)} bar). Çıkılıyor.")
-        save_json(POS_PATH, pos)
+        n = 0 if df is None else len(df)
+        print(f"[{ticker}] yetersiz veri ({n} bar) — atlanıyor.")
+        all_pos[ticker] = pos
         return
 
     enr   = signals.compute_indicators(df, is_intraday=is_intra)
     score = signals.compute_score(enr)
     dec_series, z_series = signals.zscore_signal(score, lookback=lookback, k=k)
 
-    # Son KAPANMIŞ bar = sondan ikinci (canlı bar henüz kapanmadı).
-    bar_time = str(enr.index[-2])
+    bar_time = str(enr.index[-2])      # son KAPANMIŞ bar
     decision = dec_series.iloc[-2]
     price    = float(enr["Close"].iloc[-2])
     z_val    = float(z_series.iloc[-2])
 
-    # Bu bar daha önce işlendiyse tekrar işlem yapma.
     if pos.get("last_bar_time") == bar_time:
-        print(f"[BİLGİ] {bar_time} zaten işlendi. Karar={decision}. Atlanıyor.")
-        save_json(POS_PATH, pos)
+        print(f"[{ticker}] {bar_time} zaten işlendi. Karar={decision}. Atlanıyor.")
+        all_pos[ticker] = pos
         return
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
@@ -145,8 +155,7 @@ def run():
         pct = (gross - entry_val) / entry_val * 100.0
         pos["in_position"] = False
         pos["cash"] = gross
-        pos["capital"] = gross          # yeni sermaye = satış sonrası nakit
-        sold_qty = pos["qty"]
+        pos["capital"] = gross
         pos["qty"] = 0.0
         pos["entry_price"] = None
         pos["entry_time"]  = None
@@ -160,11 +169,36 @@ def run():
             f"Bar: {bar_time}\nz={z_val:+.2f}\n{now}")
 
     pos["last_bar_time"] = bar_time
-    save_json(POS_PATH, pos)
+    all_pos[ticker] = pos
 
     state = "ELDE" if pos["in_position"] else "NAKİT"
     print(f"[{now}] {ticker} | karar={decision} z={z_val:+.2f} fiyat={price:.4f} "
           f"| durum={state} | işlem={'EVET' if acted else 'hayır'}")
+
+
+def run():
+    cfg = load_json(CONFIG_PATH, DEFAULT_CONFIG)
+    tickers = get_tickers(cfg)
+    capital = float(cfg.get("capital", 1000.0))
+
+    all_pos = load_json(POS_PATH, {})
+    # Eski tek-ticker formatı (düz pozisyon sözlüğü) ise sözlük yapısına çevir.
+    if isinstance(all_pos, dict) and "in_position" in all_pos:
+        old_ticker = all_pos.get("ticker", "gc=f")
+        all_pos = {old_ticker: all_pos}
+    if not isinstance(all_pos, dict):
+        all_pos = {}
+
+    # config'te artık olmayan ticker'ları pozisyondan düşür (temizlik).
+    for t in list(all_pos.keys()):
+        if t not in tickers:
+            print(f"[TEMİZLİK] {t} artık izlenmiyor, pozisyondan çıkarılıyor.")
+            del all_pos[t]
+
+    for t in tickers:
+        process_ticker(t, cfg, all_pos)
+
+    save_json(POS_PATH, all_pos)
 
 
 if __name__ == "__main__":
