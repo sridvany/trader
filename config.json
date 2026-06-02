@@ -1,5 +1,9 @@
 {
-  "ticker": "gc=f",
+  "tickers": [
+    "gc=f",
+    "NVDA",
+    "ASELS.IS"
+  ],
   "interval": "15m",
   "period": "5d",
   "lookback": 32,
