@@ -1,6 +1,46 @@
-.github/
-  workflows/
-    trader.yml
-app.py
-signals.py
-...
+name: paper-trader
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: paper-trader
+  cancel-in-progress: false
+
+jobs:
+  trade:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Python kur
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Bagimliliklar
+        run: pip install -r requirements.txt
+
+      - name: Botu calistir
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python trader.py
+
+      - name: Durumu kaydet
+        run: |
+          git config user.name  "paper-trader-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add position.json
+          if git diff --staged --quiet; then
+            echo "Degisiklik yok."
+          else
+            git commit -m "state update"
+            git push
+          fi
