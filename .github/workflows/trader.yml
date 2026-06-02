@@ -22,6 +22,4 @@ jobs:
           git config user.name "bot"
           git config user.email "bot@users.noreply.github.com"
           git add position.json
-          git diff --staged --quiet && echo "Degisiklik yok." && exit 0
-          git commit -m "state"
-          git push --force origin main || echo "Push gecildi"
+          git
