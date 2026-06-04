@@ -16,8 +16,20 @@ import json
 import os
 import sys
 from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
 
 import pandas as pd
+
+IST = ZoneInfo("Europe/Istanbul")
+
+
+def to_ist(bar_time):
+    """Bar etiketini (borsa saatli string) İstanbul saatine çevirip gösterir.
+    Çevrilemezse orijinali döner. position.json'daki ham değer DEĞİŞMEZ."""
+    try:
+        return pd.Timestamp(bar_time).tz_convert(IST).strftime("%Y-%m-%d %H:%M")
+    except Exception:
+        return str(bar_time)
 import yfinance as yf
 
 import signals
@@ -133,7 +145,7 @@ def process_ticker(ticker, cfg, all_pos):
         all_pos[ticker] = pos
         return
 
-    now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    now = datetime.now(IST).strftime("%Y-%m-%d %H:%M")
     acted = False
 
     if not pos["in_position"] and decision == "AL":
@@ -147,7 +159,7 @@ def process_ticker(ticker, cfg, all_pos):
         acted = True
         send_telegram(
             f"🟢 ALDIM\n{ticker} @ {price:.4f}\n"
-            f"Miktar: {qty:.4f}\nBar: {bar_time}\nz={z_val:+.2f}\n{now}")
+            f"Miktar: {qty:.4f}\nBar: {to_ist(bar_time)}\nz={z_val:+.2f}\n{now}")
 
     elif pos["in_position"] and decision == "SAT":
         gross = pos["qty"] * price * (1 - cost_pct)
@@ -166,7 +178,7 @@ def process_ticker(ticker, cfg, all_pos):
         send_telegram(
             f"🔴 SATTIM {emoji}\n{ticker} @ {price:.4f}\n"
             f"Sonuç: %{pct:+.2f}\nYeni bakiye: {gross:.2f} TL\n"
-            f"Bar: {bar_time}\nz={z_val:+.2f}\n{now}")
+            f"Bar: {to_ist(bar_time)}\nz={z_val:+.2f}\n{now}")
 
     pos["last_bar_time"] = bar_time
     all_pos[ticker] = pos
