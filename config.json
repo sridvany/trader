@@ -1,9 +1,9 @@
 {
   "tickers": ["gc=f"],
-  "interval": "15m",
-  "period": "5d",
-  "lookback": 32,
-  "k": 1.0,
+  "interval": "1h",
+  "period": "60d",
+  "lookback": 50,
+  "k": 1.5,
   "capital": 1000.0,
   "cost_pct": 0.001
 }
