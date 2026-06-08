@@ -22,6 +22,8 @@ jobs:
         run: |
           git config user.name bot
           git config user.email bot@noreply.com
-          git pull --rebase
           git add position.json
-          git diff --staged --quiet || (git commit -m state && git push)
+          git diff --staged --quiet && exit 0
+          git commit -m state
+          git pull --rebase
+          git push
