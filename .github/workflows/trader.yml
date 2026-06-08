@@ -1,7 +1,7 @@
 name: paper-trader
 on:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "2 * * * *"
   workflow_dispatch:
 permissions:
   contents: write
