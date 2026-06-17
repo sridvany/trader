@@ -1,13 +1,13 @@
 {
   "gc=f": {
     "ticker": "gc=f",
-    "in_position": false,
-    "entry_price": null,
-    "entry_time": null,
-    "qty": 0.0,
-    "cash": 998.1167029697945,
+    "in_position": true,
+    "entry_price": 4401.10009765625,
+    "entry_time": "2026-06-17 13:00:00-04:00",
+    "qty": 0.22656144174439738,
+    "cash": 0.0,
     "capital": 998.1167029697945,
-    "last_bar_time": "2026-06-17 10:00:00-04:00",
+    "last_bar_time": "2026-06-17 13:00:00-04:00",
     "history": [
       {
         "action": "AL",
@@ -21,6 +21,12 @@
         "time": "2026-06-16 19:00:00-04:00",
         "pct": -0.19,
         "value": 998.12
+      },
+      {
+        "action": "AL",
+        "price": 4401.10009765625,
+        "time": "2026-06-17 13:00:00-04:00",
+        "value": 998.1167029697945
       }
     ]
   }
