@@ -1,5 +1,5 @@
 {
-  "tickers": ["gc=f"],
+  "tickers": ["gc=f","MCRY","PAPIL.IS"],
   "interval": "1h",
   "period": "60d",
   "lookback": 50,
