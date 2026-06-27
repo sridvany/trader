@@ -42,5 +42,38 @@
         "value": 970.0486413861247
       }
     ]
+  },
+  "MCRY": {
+    "ticker": "MCRY",
+    "in_position": false,
+    "entry_price": null,
+    "entry_time": null,
+    "qty": 0.0,
+    "cash": 1000.0,
+    "capital": 1000.0,
+    "last_bar_time": null,
+    "history": []
+  },
+  "PAPIL.IS": {
+    "ticker": "PAPIL.IS",
+    "in_position": false,
+    "entry_price": null,
+    "entry_time": null,
+    "qty": 0.0,
+    "cash": 1000.0,
+    "capital": 1000.0,
+    "last_bar_time": "2026-06-26 16:30:00+03:00",
+    "history": []
+  },
+  "ELG.DE": {
+    "ticker": "ELG.DE",
+    "in_position": false,
+    "entry_price": null,
+    "entry_time": null,
+    "qty": 0.0,
+    "cash": 1000.0,
+    "capital": 1000.0,
+    "last_bar_time": "2026-06-26 16:00:00+02:00",
+    "history": []
   }
 }
