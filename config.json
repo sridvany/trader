@@ -1,7 +1,7 @@
 {
   "tickers": ["gc=f","MCRY","PAPIL.IS","ELG.DE"],
   "interval": "1h",
-  "period": "60d",
+  "period": "2y",
   "lookback": 50,
   "k": 1.5,
   "capital": 1000.0,
