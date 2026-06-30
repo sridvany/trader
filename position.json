@@ -7,7 +7,7 @@
     "qty": 0.0,
     "cash": 976.6212075573933,
     "capital": 976.6212075573933,
-    "last_bar_time": "2026-06-30 10:00:00-04:00",
+    "last_bar_time": "2026-06-30 12:00:00-04:00",
     "history": [
       {
         "action": "AL",
@@ -50,17 +50,6 @@
       }
     ]
   },
-  "MCRY": {
-    "ticker": "MCRY",
-    "in_position": false,
-    "entry_price": null,
-    "entry_time": null,
-    "qty": 0.0,
-    "cash": 1000.0,
-    "capital": 1000.0,
-    "last_bar_time": null,
-    "history": []
-  },
   "PAPIL.IS": {
     "ticker": "PAPIL.IS",
     "in_position": false,
@@ -82,5 +71,23 @@
     "capital": 1000.0,
     "last_bar_time": "2026-06-30 16:00:00+02:00",
     "history": []
+  },
+  "MRCY": {
+    "ticker": "MRCY",
+    "in_position": true,
+    "entry_price": 116.37000274658203,
+    "entry_time": "2026-06-30 12:30:00-04:00",
+    "qty": 8.584695157020105,
+    "cash": 0.0,
+    "capital": 1000.0,
+    "last_bar_time": "2026-06-30 12:30:00-04:00",
+    "history": [
+      {
+        "action": "AL",
+        "price": 116.37000274658203,
+        "time": "2026-06-30 12:30:00-04:00",
+        "value": 1000.0
+      }
+    ]
   }
 }
