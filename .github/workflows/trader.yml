@@ -25,5 +25,5 @@ jobs:
           git add position.json
           git diff --staged --quiet && exit 0
           git commit -m state
-          git pull --rebase
+          git pull --rebase --autostash
           git push
