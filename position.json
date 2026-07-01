@@ -1,13 +1,13 @@
 {
   "gc=f": {
     "ticker": "gc=f",
-    "in_position": false,
-    "entry_price": null,
-    "entry_time": null,
-    "qty": 0.0,
-    "cash": 976.6212075573933,
+    "in_position": true,
+    "entry_price": 4044.0,
+    "entry_time": "2026-07-01 07:00:00-04:00",
+    "qty": 0.24125755736780366,
+    "cash": 0.0,
     "capital": 976.6212075573933,
-    "last_bar_time": "2026-07-01 04:00:00-04:00",
+    "last_bar_time": "2026-07-01 07:00:00-04:00",
     "history": [
       {
         "action": "AL",
@@ -47,6 +47,12 @@
         "time": "2026-06-29 14:00:00-04:00",
         "pct": 0.68,
         "value": 976.62
+      },
+      {
+        "action": "AL",
+        "price": 4044.0,
+        "time": "2026-07-01 07:00:00-04:00",
+        "value": 976.6212075573933
       }
     ]
   },
@@ -58,7 +64,7 @@
     "qty": 0.0,
     "cash": 1000.0,
     "capital": 1000.0,
-    "last_bar_time": "2026-07-01 11:30:00+03:00",
+    "last_bar_time": "2026-07-01 13:30:00+03:00",
     "history": []
   },
   "ELG.DE": {
@@ -69,7 +75,7 @@
     "qty": 0.0,
     "cash": 1000.0,
     "capital": 1000.0,
-    "last_bar_time": "2026-07-01 10:00:00+02:00",
+    "last_bar_time": "2026-07-01 13:00:00+02:00",
     "history": []
   },
   "MRCY": {
