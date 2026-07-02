@@ -7,7 +7,7 @@
     "qty": 0.24125755736780366,
     "cash": 0.0,
     "capital": 976.6212075573933,
-    "last_bar_time": "2026-07-02 06:00:00-04:00",
+    "last_bar_time": "2026-07-02 08:00:00-04:00",
     "history": [
       {
         "action": "AL",
@@ -64,18 +64,7 @@
     "qty": 0.0,
     "cash": 1000.0,
     "capital": 1000.0,
-    "last_bar_time": "2026-07-02 12:30:00+03:00",
-    "history": []
-  },
-  "ELG.DE": {
-    "ticker": "ELG.DE",
-    "in_position": false,
-    "entry_price": null,
-    "entry_time": null,
-    "qty": 0.0,
-    "cash": 1000.0,
-    "capital": 1000.0,
-    "last_bar_time": "2026-07-02 12:00:00+02:00",
+    "last_bar_time": "2026-07-02 15:30:00+03:00",
     "history": []
   },
   "MRCY": {
@@ -86,7 +75,7 @@
     "qty": 8.584695157020105,
     "cash": 0.0,
     "capital": 1000.0,
-    "last_bar_time": "2026-07-01 14:30:00-04:00",
+    "last_bar_time": "2026-07-01 15:30:00-04:00",
     "history": [
       {
         "action": "AL",
@@ -95,5 +84,16 @@
         "value": 1000.0
       }
     ]
+  },
+  "IFX.DE": {
+    "ticker": "IFX.DE",
+    "in_position": false,
+    "entry_price": null,
+    "entry_time": null,
+    "qty": 0.0,
+    "cash": 1000.0,
+    "capital": 1000.0,
+    "last_bar_time": "2026-07-02 14:00:00+02:00",
+    "history": []
   }
 }
