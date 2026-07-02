@@ -450,6 +450,32 @@ with st.sidebar:
                     "k":        float(bt_k),
                     "capital":  1000.0,
                     "cost_pct": 0.001,
+                    # Paneldeki güncel indikatör parametreleri — bot birebir aynı
+                    # sinyalleri üretsin diye compute_indicators'a geçirilir.
+                    "params": {
+                        "sma_short": int(sma_short),   "sma_long": int(sma_long),
+                        "rsi_period": int(rsi_period), "rsi_lower": int(rsi_lower),
+                        "rsi_upper": int(rsi_upper),   "rsi_ma_period": int(rsi_ma_period),
+                        "rsi_trend_period": int(rsi_trend_period),
+                        "bb_period": int(bb_period),   "bb_std": float(bb_std),
+                        "macd_fast": int(macd_fast),   "macd_slow": int(macd_slow),
+                        "macd_signal": int(macd_signal),
+                        "obv_short": int(obv_short),   "obv_long": int(obv_long),
+                        "adx_period": int(adx_period), "adx_threshold": int(adx_threshold),
+                        "stoch_rsi_period": int(stoch_rsi_period),
+                        "stoch_d_period": int(stoch_d_period),
+                        "stoch_lower": int(stoch_lower), "stoch_upper": int(stoch_upper),
+                        "ichi_tenkan": int(ichi_tenkan), "ichi_kijun": int(ichi_kijun),
+                        "ichi_senkou_b": int(ichi_senkou_b),
+                        "kama_period": int(kama_period), "kama_fast": int(kama_fast),
+                        "kama_slow": int(kama_slow),
+                        "st_period": int(st_period),   "st_multiplier": float(st_multiplier),
+                        "lrc_period": int(lrc_period), "lrc_std_mult": float(lrc_std_mult),
+                        "atr_period": int(atr_period),
+                        "vwap_band_pct": float(vwap_band_pct),
+                        "wt_n1": int(wt_n1), "wt_n2": int(wt_n2),
+                        "wt_ob": int(wt_ob), "wt_os": int(wt_os),
+                    },
                 })
                 _cfg.pop("ticker", None)  # eski tekil alanı temizle
 
