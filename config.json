@@ -2,7 +2,7 @@
   "tickers": ["gc=f","MRCY","PAPIL.IS","IFX.DE"],
   "interval": "1h",
   "period": "2y",
-  "lookback": 50,
+  "lookback": 150,
   "k": 1.5,
   "capital": 1000.0,
   "cost_pct": 0.001
