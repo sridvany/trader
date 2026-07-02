@@ -131,7 +131,8 @@ def process_ticker(ticker, cfg, all_pos):
         all_pos[ticker] = pos
         return
 
-    enr   = signals.compute_indicators(df, is_intraday=is_intra)
+    enr   = signals.compute_indicators(df, params=cfg.get("params") or None,
+                                        is_intraday=is_intra)
     score = signals.compute_score(enr)
     dec_series, z_series = signals.zscore_signal(score, lookback=lookback, k=k)
 
