@@ -1050,8 +1050,9 @@ SIGNAL_COLS = [
 
 # Varsayılan indikatör parametreleri (app.py sidebar defaults ile uyumlu).
 DEFAULT_PARAMS = {
-    "sma_short": 20, "sma_long": 100,
+    "sma_short": 20, "sma_long": 200,
     "rsi_period": 14, "rsi_lower": 30, "rsi_upper": 70, "rsi_ma_period": 14,
+    "rsi_trend_period": 200,
     "bb_period": 20, "bb_std": 2.0,
     "macd_fast": 12, "macd_slow": 26, "macd_signal": 9,
     "obv_short": 10, "obv_long": 30,
@@ -1091,7 +1092,8 @@ def compute_indicators(df, params=None, is_intraday=True):
     df["SMA200"] = close.rolling(200, min_periods=200).mean()
 
     df["Sig_RSI"], df["RSI"] = sig_rsi_fn(
-        close, p["rsi_period"], p["rsi_lower"], p["rsi_upper"])
+        close, p["rsi_period"], p["rsi_lower"], p["rsi_upper"],
+        trend_period=p["rsi_trend_period"])
     df["RSI_MA"] = df["RSI"].rolling(p["rsi_ma_period"]).mean()
 
     df["Sig_BB"], df["Mid"], df["Up"], df["Low_BB"] = sig_bb(
