@@ -7,7 +7,7 @@
     "qty": 0.0,
     "cash": 993.5414456350637,
     "capital": 993.5414456350637,
-    "last_bar_time": "2026-07-08 11:00:00-04:00",
+    "last_bar_time": "2026-07-08 13:00:00-04:00",
     "history": [
       {
         "action": "AL",
@@ -76,19 +76,26 @@
   },
   "MRCY": {
     "ticker": "MRCY",
-    "in_position": true,
-    "entry_price": 116.37000274658203,
-    "entry_time": "2026-06-30 12:30:00-04:00",
-    "qty": 8.584695157020105,
-    "cash": 0.0,
-    "capital": 1000.0,
-    "last_bar_time": "2026-07-08 11:30:00-04:00",
+    "in_position": false,
+    "entry_price": null,
+    "entry_time": null,
+    "qty": 0.0,
+    "cash": 959.0664486534761,
+    "capital": 959.0664486534761,
+    "last_bar_time": "2026-07-08 12:30:00-04:00",
     "history": [
       {
         "action": "AL",
         "price": 116.37000274658203,
         "time": "2026-06-30 12:30:00-04:00",
         "value": 1000.0
+      },
+      {
+        "action": "SAT",
+        "price": 111.83000183105469,
+        "time": "2026-07-08 12:30:00-04:00",
+        "pct": -4.09,
+        "value": 959.07
       }
     ]
   },
