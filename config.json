@@ -1,5 +1,5 @@
 {
-  "tickers": ["gc=f","MRCY","ATATP.IS","IFX.DE"],
+  "tickers": ["gc=f","MRCY","MTRKS.IS","IFX.DE"],
   "interval": "1h",
   "period": "2y",
   "lookback": 150,
