@@ -1,5 +1,5 @@
 {
-  "tickers": ["gc=f","VNO","IEYHO.IS","HEN.DE"],
+  "tickers": ["gc=f","SEZL","IEYHO.IS","HEN.DE"],
   "interval": "1h",
   "period": "2y",
   "lookback": 150,
