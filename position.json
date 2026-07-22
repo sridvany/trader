@@ -7,7 +7,7 @@
     "qty": 0.24145629189961376,
     "cash": 0.0,
     "capital": 973.4618742194349,
-    "last_bar_time": "2026-07-21 22:00:00-04:00",
+    "last_bar_time": "2026-07-22 01:00:00-04:00",
     "history": [
       {
         "action": "AL",
@@ -82,28 +82,6 @@
       }
     ]
   },
-  "VNO": {
-    "ticker": "VNO",
-    "in_position": false,
-    "entry_price": null,
-    "entry_time": null,
-    "qty": 0.0,
-    "cash": 1000.0,
-    "capital": 1000.0,
-    "last_bar_time": "2026-07-21 14:30:00-04:00",
-    "history": []
-  },
-  "MTRKS.IS": {
-    "ticker": "MTRKS.IS",
-    "in_position": false,
-    "entry_price": null,
-    "entry_time": null,
-    "qty": 0.0,
-    "cash": 1000.0,
-    "capital": 1000.0,
-    "last_bar_time": "2026-07-21 16:30:00+03:00",
-    "history": []
-  },
   "HEN.DE": {
     "ticker": "HEN.DE",
     "in_position": false,
@@ -113,6 +91,28 @@
     "cash": 1000.0,
     "capital": 1000.0,
     "last_bar_time": "2026-07-21 16:00:00+02:00",
+    "history": []
+  },
+  "SEZL": {
+    "ticker": "SEZL",
+    "in_position": false,
+    "entry_price": null,
+    "entry_time": null,
+    "qty": 0.0,
+    "cash": 1000.0,
+    "capital": 1000.0,
+    "last_bar_time": "2026-07-21 14:30:00-04:00",
+    "history": []
+  },
+  "IEYHO.IS": {
+    "ticker": "IEYHO.IS",
+    "in_position": false,
+    "entry_price": null,
+    "entry_time": null,
+    "qty": 0.0,
+    "cash": 1000.0,
+    "capital": 1000.0,
+    "last_bar_time": "2026-07-21 16:30:00+03:00",
     "history": []
   }
 }
