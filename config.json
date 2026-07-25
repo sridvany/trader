@@ -2,8 +2,8 @@
   "tickers": ["gc=f","SEZL","FORTE.IS","HEN.DE"],
   "interval": "1h",
   "period": "2y",
-  "lookback": 150,
-  "k": 1.5,
+  "lookback": 400,
+  "k": 1.55,
   "capital": 1000.0,
   "cost_pct": 0.001
 }
