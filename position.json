@@ -89,28 +89,6 @@
       }
     ]
   },
-  "HEN.DE": {
-    "ticker": "HEN.DE",
-    "in_position": false,
-    "entry_price": null,
-    "entry_time": null,
-    "qty": 0.0,
-    "cash": 1000.0,
-    "capital": 1000.0,
-    "last_bar_time": "2026-07-24 16:00:00+02:00",
-    "history": []
-  },
-  "SEZL": {
-    "ticker": "SEZL",
-    "in_position": false,
-    "entry_price": null,
-    "entry_time": null,
-    "qty": 0.0,
-    "cash": 1000.0,
-    "capital": 1000.0,
-    "last_bar_time": "2026-07-24 14:30:00-04:00",
-    "history": []
-  },
   "MTRKS.IS": {
     "ticker": "MTRKS.IS",
     "in_position": true,
@@ -128,5 +106,27 @@
         "value": 1000.0
       }
     ]
+  },
+  "KLKIM.IS": {
+    "ticker": "KLKIM.IS",
+    "in_position": false,
+    "entry_price": null,
+    "entry_time": null,
+    "qty": 0.0,
+    "cash": 1000.0,
+    "capital": 1000.0,
+    "last_bar_time": "2026-07-24 16:30:00+03:00",
+    "history": []
+  },
+  "NTGAZ.IS": {
+    "ticker": "NTGAZ.IS",
+    "in_position": false,
+    "entry_price": null,
+    "entry_time": null,
+    "qty": 0.0,
+    "cash": 1000.0,
+    "capital": 1000.0,
+    "last_bar_time": "2026-07-24 16:30:00+03:00",
+    "history": []
   }
 }
