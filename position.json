@@ -111,15 +111,22 @@
     "last_bar_time": "2026-07-24 14:30:00-04:00",
     "history": []
   },
-  "FORTE.IS": {
-    "ticker": "FORTE.IS",
-    "in_position": false,
-    "entry_price": null,
-    "entry_time": null,
-    "qty": 0.0,
-    "cash": 1000.0,
+  "MTRKS.IS": {
+    "ticker": "MTRKS.IS",
+    "in_position": true,
+    "entry_price": 29.5,
+    "entry_time": "2026-07-24 16:30:00+03:00",
+    "qty": 33.86444064410167,
+    "cash": 0.0,
     "capital": 1000.0,
     "last_bar_time": "2026-07-24 16:30:00+03:00",
-    "history": []
+    "history": [
+      {
+        "action": "AL",
+        "price": 29.5,
+        "time": "2026-07-24 16:30:00+03:00",
+        "value": 1000.0
+      }
+    ]
   }
 }
