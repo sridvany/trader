@@ -7,7 +7,7 @@
     "qty": 0.0,
     "cash": 956.7300019272827,
     "capital": 956.7300019272827,
-    "last_bar_time": "2026-07-29 07:00:00-04:00",
+    "last_bar_time": "2026-07-29 10:00:00-04:00",
     "history": [
       {
         "action": "AL",
@@ -104,19 +104,26 @@
   },
   "MTRKS.IS": {
     "ticker": "MTRKS.IS",
-    "in_position": true,
-    "entry_price": 29.5,
-    "entry_time": "2026-07-24 16:30:00+03:00",
-    "qty": 33.86444064410167,
-    "cash": 0.0,
-    "capital": 1000.0,
-    "last_bar_time": "2026-07-29 14:30:00+03:00",
+    "in_position": false,
+    "entry_price": null,
+    "entry_time": null,
+    "qty": 0.0,
+    "cash": 918.1618175132934,
+    "capital": 918.1618175132934,
+    "last_bar_time": "2026-07-29 16:30:00+03:00",
     "history": [
       {
         "action": "AL",
         "price": 29.5,
         "time": "2026-07-24 16:30:00+03:00",
         "value": 1000.0
+      },
+      {
+        "action": "SAT",
+        "price": 27.139999389648438,
+        "time": "2026-07-29 16:30:00+03:00",
+        "pct": -8.18,
+        "value": 918.16
       }
     ]
   },
@@ -128,7 +135,7 @@
     "qty": 0.0,
     "cash": 1000.0,
     "capital": 1000.0,
-    "last_bar_time": "2026-07-29 14:30:00+03:00",
+    "last_bar_time": "2026-07-29 16:30:00+03:00",
     "history": []
   },
   "NTGAZ.IS": {
@@ -139,7 +146,7 @@
     "qty": 0.0,
     "cash": 1000.0,
     "capital": 1000.0,
-    "last_bar_time": "2026-07-29 14:30:00+03:00",
+    "last_bar_time": "2026-07-29 16:30:00+03:00",
     "history": []
   }
 }
