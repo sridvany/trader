@@ -1,5 +1,5 @@
 {
-  "tickers": ["gc=f","MFCO","CODA","TERA.IS"],
+  "tickers": ["gc=f","MFCO","CODA","TERA.IS","LOGO.IS"],
   "interval": "1h",
   "period": "2y",
   "lookback": 400,
