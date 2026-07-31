@@ -7,7 +7,7 @@
     "qty": 0.23190523859527812,
     "cash": 0.0,
     "capital": 956.7300019272827,
-    "last_bar_time": "2026-07-31 05:00:00-04:00",
+    "last_bar_time": "2026-07-31 07:00:00-04:00",
     "history": [
       {
         "action": "AL",
@@ -138,7 +138,7 @@
     "qty": 5.900773662098446,
     "cash": 0.0,
     "capital": 1000.0,
-    "last_bar_time": "2026-07-31 11:30:00+03:00",
+    "last_bar_time": "2026-07-31 14:30:00+03:00",
     "history": [
       {
         "action": "AL",
@@ -147,5 +147,16 @@
         "value": 1000.0
       }
     ]
+  },
+  "LOGO.IS": {
+    "ticker": "LOGO.IS",
+    "in_position": false,
+    "entry_price": null,
+    "entry_time": null,
+    "qty": 0.0,
+    "cash": 1000.0,
+    "capital": 1000.0,
+    "last_bar_time": "2026-07-31 14:30:00+03:00",
+    "history": []
   }
 }
