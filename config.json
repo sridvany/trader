@@ -1,5 +1,5 @@
 {
-  "tickers": ["gc=f","TERA.IS", "MPARK.IS"],
+  "tickers": ["gc=f","TERA.IS", "CODA", "MPARK.IS"],
   "interval": "1h",
   "period": "2y",
   "lookback": 400,
