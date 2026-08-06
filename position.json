@@ -7,7 +7,7 @@
     "qty": 0.23190523859527812,
     "cash": 0.0,
     "capital": 956.7300019272827,
-    "last_bar_time": "2026-08-06 07:00:00-04:00",
+    "last_bar_time": "2026-08-06 10:00:00-04:00",
     "history": [
       {
         "action": "AL",
@@ -108,17 +108,6 @@
       }
     ]
   },
-  "MFCO": {
-    "ticker": "MFCO",
-    "in_position": false,
-    "entry_price": null,
-    "entry_time": null,
-    "qty": 0.0,
-    "cash": 1000.0,
-    "capital": 1000.0,
-    "last_bar_time": null,
-    "history": []
-  },
   "CODA": {
     "ticker": "CODA",
     "in_position": true,
@@ -127,7 +116,7 @@
     "qty": 96.42867105281428,
     "cash": 0.0,
     "capital": 1000.0,
-    "last_bar_time": "2026-08-05 14:30:00-04:00",
+    "last_bar_time": "2026-08-06 09:30:00-04:00",
     "history": [
       {
         "action": "AL",
@@ -145,7 +134,7 @@
     "qty": 5.900773662098446,
     "cash": 0.0,
     "capital": 1000.0,
-    "last_bar_time": "2026-08-05 17:30:00+03:00",
+    "last_bar_time": "2026-08-06 16:30:00+03:00",
     "history": [
       {
         "action": "AL",
@@ -154,5 +143,16 @@
         "value": 1000.0
       }
     ]
+  },
+  "MPARK.IS": {
+    "ticker": "MPARK.IS",
+    "in_position": false,
+    "entry_price": null,
+    "entry_time": null,
+    "qty": 0.0,
+    "cash": 1000.0,
+    "capital": 1000.0,
+    "last_bar_time": "2026-08-06 16:30:00+03:00",
+    "history": []
   }
 }
