@@ -7,7 +7,7 @@
     "qty": 0.23190523859527812,
     "cash": 0.0,
     "capital": 956.7300019272827,
-    "last_bar_time": "2026-08-07 04:00:00-04:00",
+    "last_bar_time": "2026-08-07 06:00:00-04:00",
     "history": [
       {
         "action": "AL",
@@ -125,16 +125,5 @@
         "value": 1000.0
       }
     ]
-  },
-  "MPARK.IS": {
-    "ticker": "MPARK.IS",
-    "in_position": false,
-    "entry_price": null,
-    "entry_time": null,
-    "qty": 0.0,
-    "cash": 1000.0,
-    "capital": 1000.0,
-    "last_bar_time": "2026-08-07 11:30:00+03:00",
-    "history": []
   }
 }
