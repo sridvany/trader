@@ -7,7 +7,7 @@
     "qty": 0.21994896699923652,
     "cash": 0.0,
     "capital": 1002.4950820673199,
-    "last_bar_time": "2026-08-20 01:00:00-04:00",
+    "last_bar_time": "2026-08-20 02:00:00-04:00",
     "history": [
       {
         "action": "AL",
@@ -136,13 +136,20 @@
   },
   "NTGAZ.IS": {
     "ticker": "NTGAZ.IS",
-    "in_position": false,
-    "entry_price": null,
-    "entry_time": null,
-    "qty": 0.0,
-    "cash": 1000.0,
+    "in_position": true,
+    "entry_price": 10.8100004196167,
+    "entry_time": "2026-08-19 17:30:00+03:00",
+    "qty": 92.41451990955812,
+    "cash": 0.0,
     "capital": 1000.0,
-    "last_bar_time": "2026-08-19 16:30:00+03:00",
-    "history": []
+    "last_bar_time": "2026-08-19 17:30:00+03:00",
+    "history": [
+      {
+        "action": "AL",
+        "price": 10.8100004196167,
+        "time": "2026-08-19 17:30:00+03:00",
+        "value": 1000.0
+      }
+    ]
   }
 }
