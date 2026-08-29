@@ -158,5 +158,27 @@
         "value": 1000.0
       }
     ]
+  },
+  "PCILT.IS": {
+    "ticker": "PCILT.IS",
+    "in_position": false,
+    "entry_price": null,
+    "entry_time": null,
+    "qty": 0.0,
+    "cash": 1000.0,
+    "capital": 1000.0,
+    "last_bar_time": "2026-08-28 16:30:00+03:00",
+    "history": []
+  },
+  "GUBRF.IS": {
+    "ticker": "GUBRF.IS",
+    "in_position": false,
+    "entry_price": null,
+    "entry_time": null,
+    "qty": 0.0,
+    "cash": 1000.0,
+    "capital": 1000.0,
+    "last_bar_time": "2026-08-28 16:30:00+03:00",
+    "history": []
   }
 }
