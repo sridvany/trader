@@ -1,5 +1,5 @@
 {
-  "tickers": ["gc=f", "NTGAZ.IS"],
+  "tickers": ["gc=f", "NTGAZ.IS", "PCILT.IS", "GUBRF.IS"],
   "interval": "1h",
   "period": "2y",
   "lookback": 400,
