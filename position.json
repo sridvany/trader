@@ -7,7 +7,7 @@
     "qty": 0.0,
     "cash": 1029.584302709478,
     "capital": 1029.584302709478,
-    "last_bar_time": "2026-08-31 03:00:00-04:00",
+    "last_bar_time": "2026-08-31 11:00:00-04:00",
     "history": [
       {
         "action": "AL",
@@ -149,7 +149,7 @@
     "qty": 92.41451990955812,
     "cash": 0.0,
     "capital": 1000.0,
-    "last_bar_time": "2026-08-31 09:30:00+03:00",
+    "last_bar_time": "2026-08-31 16:30:00+03:00",
     "history": [
       {
         "action": "AL",
@@ -158,27 +158,5 @@
         "value": 1000.0
       }
     ]
-  },
-  "PCILT.IS": {
-    "ticker": "PCILT.IS",
-    "in_position": false,
-    "entry_price": null,
-    "entry_time": null,
-    "qty": 0.0,
-    "cash": 1000.0,
-    "capital": 1000.0,
-    "last_bar_time": "2026-08-31 09:30:00+03:00",
-    "history": []
-  },
-  "GUBRF.IS": {
-    "ticker": "GUBRF.IS",
-    "in_position": false,
-    "entry_price": null,
-    "entry_time": null,
-    "qty": 0.0,
-    "cash": 1000.0,
-    "capital": 1000.0,
-    "last_bar_time": "2026-08-31 09:30:00+03:00",
-    "history": []
   }
 }
